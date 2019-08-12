@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Psychic Game</title>
+</head>
+
+<body>
+
+    <h1>Guess what letter I'm thinking of!</h1>
+    
+    <p id="computerchoice-text"></p>
+    <p id="wins-text"></p>
+    <p id="losses-text"></p>
+    <p id="ties-text"></p>
+    
+    <p id="userchoice-text"></p>
+    
+    <script type="text/javascript">
+
+        var wins = 0;
+        var losses = 0;
+        var guessLeft = 10;
+        var guessed = 0;
+
+        var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+
+
+        document.onkeyup = function(event) {
+        var userGuess = event.key;
+
+    
+        var magicLetter = letters[Math.floor(Math.random() * letters.length)];
+
+      if (userGuess == magicLetter) {
+        wins++;
+        guessLeft = 10;
+        } else {
+          guessLeft--;
+        }
+
+      if (guessLeft === 0) {
+        losses++;
+        guessLeft = 10;
+      }
+
+        var userChoiceText = document.getElementById("userchoice-text");
+        var winsText = document.getElementById("wins-text");
+        var lossesText = document.getElementById("losses-text");
+        var tiesText = document.getElementById("ties-text");
+
+        userChoiceText.textContent = "You guessed: " + userGuess;
+        winsText.textContent = "wins: " + wins;
+        lossesText.textContent = "losses: " + losses;
+        tiesText.textContent = "Guesses you have left: " + guessLeft;
+      };
+    </script>
+
+</body>
+
+</html>
