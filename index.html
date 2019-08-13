@@ -10,18 +10,17 @@
 
     <h1>Guess what letter I'm thinking of!</h1>
     
-    <p id="computerchoice-text"></p>
+    Enter your guesses: <input type="text" id="userchoice-text">
+    <p id="correct-text"></p>
     <p id="wins-text"></p>
     <p id="losses-text"></p>
-    <p id="ties-text"></p>
-    
-    <p id="userchoice-text"></p>
+    <p id="count-text"></p>
     
     <script type="text/javascript">
 
         var wins = 0;
         var losses = 0;
-        var guessLeft = 10;
+        var guessCount = 10;
         var guessed = 0;
 
         var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
@@ -35,25 +34,30 @@
 
       if (userGuess == magicLetter) {
         wins++;
-        guessLeft = 10;
+        guessCount = 10;
+        var correctText = document.getElementById("correct-text");
+
         } else {
-          guessLeft--;
+          guessCount--;
         }
 
-      if (guessLeft === 0) {
+      if (guessCount === 0) {
         losses++;
-        guessLeft = 10;
+        guessCount = 10;
+        var correctText = document.getElementById("correct-text");
       }
 
         var userChoiceText = document.getElementById("userchoice-text");
         var winsText = document.getElementById("wins-text");
         var lossesText = document.getElementById("losses-text");
-        var tiesText = document.getElementById("ties-text");
+        var countText = document.getElementById("count-text");
+        
 
         userChoiceText.textContent = "You guessed: " + userGuess;
         winsText.textContent = "wins: " + wins;
         lossesText.textContent = "losses: " + losses;
-        tiesText.textContent = "Guesses you have left: " + guessLeft;
+        countText.textContent = "Guesses you have left: " + guessCount;
+        correctText.textContent = "The magic letter is: " + magicLetter;
       };
     </script>
 
