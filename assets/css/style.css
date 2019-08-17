@@ -1,0 +1,12 @@
+
+
+h1 {
+    font-family: 'Indie Flower', cursive;
+    margin:auto;
+    width: 960px;
+    text-align: center;
+} 
+p {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    margin: 50px;
+}
