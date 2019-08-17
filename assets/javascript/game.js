@@ -1,6 +1,5 @@
 
 // the counters starting points
-var correct = "";
 var wins = 0;
 var losses = 0;
 var guessCount = 10;
